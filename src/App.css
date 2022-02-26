@@ -67,7 +67,6 @@ footer {
   padding: 25px 30px;
   border-radius: 5px;
   position: relative;
-  top: 100px;
   left: 300px;
 }
 
@@ -157,4 +156,15 @@ form .button input:hover{
     .customer-details::-webkit-scrollbar{
         width: 3px;
     }
+}
+
+.credit-search{
+  left: 0;
+  width: 300px;
+  padding: 10px;
+}
+
+.credit-app-button{
+  position: relative;
+  right: 0px;
 }
