@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
@@ -8,19 +9,19 @@ export default function Navbar() {
     <span className="navbar-toggler-icon"></span>
   </button>
   <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a className="navbar-brand" href="#">INNOVA BANK</a>
+  <Link to="/" className="navbar-brand" href="#">INNOVA BANK</Link>
     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
       <li className="nav-item active">
-        <a className="nav-link" href="#">Anasayfa <span class="sr-only">(current)</span></a>
+      <Link to="/" className="nav-link" href="#">Anasayfa <span class="sr-only">(current)</span></Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Kullanıcılar</a>
+      <Link to="/customers" className="nav-link" href="#">Kullanıcılar</Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Hesaplar</a>
+      <Link to="/credits" className="nav-link" href="#">Hesaplar</Link>
       </li>
     </ul> 
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Kredi Başvurusu Yap</button>   
+    <Link to="credit-application" className="btn btn-success">Kredi Başvurusu Yap</Link>   
   </div>
 </nav>
     </div>
