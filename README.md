@@ -1,3 +1,27 @@
+![Anasayfa](https://user-images.githubusercontent.com/68081349/155898700-942bacf4-4273-4a05-9b70-f05c81d55f43.png)
+
+![kredi basvurusu](https://user-images.githubusercontent.com/68081349/155898705-fb9f1bde-f4fd-4ee5-a2b9-2b728d1f8420.png)
+
+![kredi basvurusu onay](https://user-images.githubusercontent.com/68081349/155898717-3423ef78-1dec-4960-9571-d57645b51931.png)
+
+![kredi basvurusu red](https://user-images.githubusercontent.com/68081349/155898734-08de18a2-cb76-4476-9a07-1ecbb28604ad.png)
+
+![kredi listesi](https://user-images.githubusercontent.com/68081349/155898749-73497c31-376b-4735-b575-c82d0d2e9d16.png)
+
+![kredi güncellendi](https://user-images.githubusercontent.com/68081349/155898768-4bc697ef-bf9c-4759-9956-0556cafef82f.png)
+
+![kredi silindi](https://user-images.githubusercontent.com/68081349/155898772-55ee0b39-2029-4b9c-980d-5a62c096c59a.png)
+
+![kullanıcı ekle](https://user-images.githubusercontent.com/68081349/155898784-30e283f8-e0c5-4a12-a42c-3881d7bf4fa9.png)
+
+![kullanıcı listesi](https://user-images.githubusercontent.com/68081349/155898798-ff21c47a-97f4-4879-bd37-9dec6eac6e56.png)
+
+![kullanıcı güncellendi](https://user-images.githubusercontent.com/68081349/155898809-72402228-0a97-4c95-be55-963249960bed.png)
+
+![kullanıcı silindi](https://user-images.githubusercontent.com/68081349/155898813-2ebd6c5f-245d-405d-8893-c8ed4e3562cb.png)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
