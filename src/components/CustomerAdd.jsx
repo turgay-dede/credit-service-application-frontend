@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
-import CreditService from "../services/CreditService";
+import CustomerService from "../services/CustomerService";
 
-export default function Home() {
+export default function CustomerAdd() {
   const [customerDto, setCustomerDto] = useState({
     fullName: null,
     identityNumber: null,
@@ -10,7 +10,7 @@ export default function Home() {
     phoneNumber: null,
   });
 
-  let creditService = new CreditService();
+  let customerService = new CustomerService();
 
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -31,19 +31,14 @@ export default function Home() {
       phoneNumber: phoneNumber,
     };
     console.log(body);
-    creditService.creditApplication(body).then((result) => {
-      result.data.data.creditConsent === "CONFIRM"
-        ? toast.success(
-            `BASVURUNUZ ONAYLANDI. Limit: ${result.data.data.creditLimit}`
-          )
-        : toast.error("BASVURUNUZ REDDEDILDI");
+    customerService.add(body).then((result) => {
+      toast.success(result.data.message);
     });
   };
-
   return (
     <div class="row">
       <div class="container-form">
-        <div class="title">Kredi Başvurusu</div>
+        <div class="title">Kullanıcı Ekle</div>
         <form>
           <div class="customer-details">
             <div class="input-box">
@@ -91,7 +86,7 @@ export default function Home() {
             </div>
           </div>
           <div class="button">
-            <input type="submit" value="Başvur" onClick={onClickSubmit} />
+            <input type="submit" value="Kaydet" onClick={onClickSubmit} />
           </div>
         </form>
       </div>

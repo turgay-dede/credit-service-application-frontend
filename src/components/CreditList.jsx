@@ -9,7 +9,7 @@ export default function CreditList() {
 
   useEffect(() => {
     getAllMethod();
-  }, []);
+  });
 
   const onClickDelete = (identityNumber) => {
     creditService
@@ -18,14 +18,13 @@ export default function CreditList() {
     getAllMethod();
   };
 
-  const getAllMethod = (identityNumber) => {
+  const getAllMethod = () => {
     creditService.getAll().then((result) => setCredits(result.data.data));
   };
 
   return (
     <div>
       <CreditSearch />
-
       <table class="table">
         <thead class="thead-dark">
           <tr>
@@ -53,9 +52,9 @@ export default function CreditList() {
               </td>
 
               <td>
-                
-                  <Link to={`/update/${credit.identityNumber}`}><button className="btn btn-success">Güncelle</button></Link>
-                
+                <Link to={`/update/credit/${credit.identityNumber}`}>
+                  <button className="btn btn-success">Güncelle</button>
+                </Link>
               </td>
             </tr>
           ))}

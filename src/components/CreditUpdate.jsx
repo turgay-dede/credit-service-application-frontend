@@ -1,54 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CreditService from "../services/CreditService";
+import { toast } from "react-toastify";
 
 export default function CreditUpdate() {
   let creditService = new CreditService();
-  const [credit, setCredit] = useState({});
-  const [creditDto, setCreditDto] = useState({
-    fullName: null,
-    identityNumber: null,
-    monthlyIncome: null,
-    phoneNumber: null,
-  });
-  console.log(credit);
 
   const { identityNumber } = useParams();
+  const [credit, setCredit] = useState({});
 
   useEffect(() => {
-    creditService
-      .getCreditByIdentityNumber(identityNumber)
-      .then((result) => setCredit(result.data.data));
-  });
+    creditService.getCreditByIdentityNumber(identityNumber).then((result) => {
+      setCredit(result.data.data);
+      console.log(result.data);
+    });
+  }, []);
 
-  const onChangeIdentityNumber = (event) => {
-    this.useState({
-      [event.target.name]: event.target.value,
-    });
-  };
-  const onChangeCreditLimit = (event) => {
-    this.useState({
-      [event.target.name]: event.target.value,
-    });
-  };
-  const onChangeCreditConsent = (event) => {
-    this.useState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const onClickUpdateSubmit = () => {
-    const { identityNumber, creditLimit, creditConsent } = this.state;
+  const onClickUpdateSubmit = (e) => {
+    e.preventDefault();
+    var creditConsentValue = document.getElementById("creditConsent").value;
+    var identityNumberValue = document.getElementById("identityNumber").value;
+    var creditLimitValue = document.getElementById("creditLimit").value;
+    var idValue = credit.id;
 
     const body = {
-      identityNumber: identityNumber,
-      creditLimit: creditLimit,
-      creditConsent: creditConsent,
+      id: idValue,
+      identityNumber: identityNumberValue,
+      creditLimit: creditLimitValue,
+      creditConsent: creditConsentValue,
     };
     creditService.update(body).then((result) => {
-      console.log(result.data.data);
+      toast.success(result.data.message);
     });
   };
+
   return (
     <div>
       <div class="row">
@@ -61,10 +46,9 @@ export default function CreditUpdate() {
                 <input
                   id="identityNumber"
                   name="identityNumber"
-                  value={credit.identityNumber}
                   type="text"
                   placeholder="Kimlik Numaranızı giriniz"
-                  onChange={onChangeIdentityNumber.bind(this)}
+                  defaultValue={credit.identityNumber}
                 />
               </div>
 
@@ -73,22 +57,26 @@ export default function CreditUpdate() {
                 <input
                   id="creditLimit"
                   name="creditLimit"
-                  value={credit.creditLimit}
+                  defaultValue={credit.creditLimit}
                   type="number"
                   placeholder="Aylık Gelirinizi giriniz"
-                  onChange={onChangeCreditLimit.bind(this)}
                 />
               </div>
 
               <div class="input-box">
                 <span class="details">Onay Bilgisi</span>
-                <select id="creditConsent" name="creditConsent" class="form-control">
-                  <option selected>Durum</option>
-                  <option>CONFIRM</option>
-                  <option>REJECT</option>
+                <select
+                  id="creditConsent"
+                  name="creditConsent"
+                  class="form-control"
+                >
+                  <option selected>
+                    {credit.creditConsent === "CONFIRM" ? "CONFIRM" : "REJECT"}
+                  </option>
+                  <option value={"CONFIRM"}>CONFIRM</option>
+                  <option value={"REJECT"}>REJECT</option>
                 </select>
               </div>
-             
             </div>
             <div class="button">
               <input

@@ -9,6 +9,9 @@ import CreditList from '../components/CreditList'
 import { ToastContainer } from "react-toastify";
 import CreditIdentityNumber from "../components/CreditIdentityNumber";
 import CreditUpdate from "../components/CreditUpdate";
+import CustomerList from "../components/CustomerList";
+import CustomerAdd from "../components/CustomerAdd";
+import CustomerUpdate from "../components/CustomerUpdate";
 
 export default function Dashboard() {
   return (
@@ -19,7 +22,11 @@ export default function Dashboard() {
         <Route path="credit-application" element={<CreditApplication/>} />
         <Route path="credits" element={<CreditList/>} />
         <Route path="/get/:identityNumber" element={<CreditIdentityNumber/>} />
-        <Route path="/update/:identityNumber" element={<CreditUpdate/>} />
+        <Route path="/update/credit/:identityNumber" element={<CreditUpdate/>} />
+        <Route path="customer/add" element={<CustomerAdd/>} />
+        <Route path="customers" element={<CustomerList/>} />
+        <Route path="/update/customer/:identityNumber" element={<CustomerUpdate/>} />
+
       </Routes>
     </div>
   );

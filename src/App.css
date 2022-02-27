@@ -168,3 +168,12 @@ form .button input:hover{
   position: relative;
   right: 0px;
 }
+
+.c-add{
+  position: relative;
+  left: -600px;
+  border: solid 1px green;
+}
+.s-btn{
+  margin-left: 50px;
+}
