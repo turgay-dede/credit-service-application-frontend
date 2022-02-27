@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import CreditService from "../services/CreditService";
 import CreditSearch from "./CreditSearch";
 
@@ -14,7 +15,7 @@ export default function CreditList() {
   const onClickDelete = (identityNumber) => {
     creditService
       .delete(identityNumber)
-      .then((result) => console.log(identityNumber));
+      .then((result) => toast.success(result.data.message));
     getAllMethod();
   };
 
@@ -41,7 +42,7 @@ export default function CreditList() {
               <th scope="row">{credit.id}</th>
               <td>{credit.identityNumber}</td>
               <td>{credit.creditLimit}</td>
-              <td>{credit.creditConsent}</td>
+              <td>{credit.creditConsent==='CONFIRM' ? <img src="assets/css/images/confirm.png" height={50}/>: <img src="assets/css/images/reject.png" height={50}/>}</td>
               <td>
                 <button
                   className="btn btn-danger"

@@ -15,6 +15,7 @@ export default function CreditIdentityNumber() {
   });
   return (
     <div>
+      <h3>KIMLIK NUMARASI ILE SORGULANDI</h3>
       <table class="table">
         <thead class="thead-dark">
           <tr>

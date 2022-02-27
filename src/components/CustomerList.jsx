@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import CustomerService from "../services/CustomerService";
 
 export default function CustomerList() {
@@ -14,7 +15,8 @@ export default function CustomerList() {
   };
 
   const onClickDelete = (id) => {
-    customerService.delete(id).then((result) => console.log(id));
+    customerService.delete(id).then((result) => toast.success(result.data.message));
+    
     getAllMethod();
   };
 
